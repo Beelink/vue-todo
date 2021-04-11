@@ -32,5 +32,9 @@ export default defineComponent({
     padding: 16px;
     text-align: center;
     color: $text-color;
+    margin: 16px auto;
+    max-width: 512px;
+    border: 2px solid $back-color;
+    border-radius: $radius;
 }
 </style>

@@ -35,14 +35,16 @@ export default defineComponent({
   methods: {
     ...mapMutations(['addTodo']),
     submitForm() {
-      this.addTodo({
-        title: this.title,
-        text: this.text,
-        id: generator.generateId(),
-      })
-      this.title = "",
-      this.text = ""
-      // router.push('/')
+      if (this.title.length && this.text.length) {
+        this.addTodo({
+          title: this.title,
+          text: this.text,
+          id: generator.generateId(),
+        })
+        this.title = "",
+        this.text = ""
+        router.push('/')
+      }
     }
   }
 })
@@ -52,17 +54,20 @@ export default defineComponent({
 @import "../../assets/styles/_variables.scss";
 
 .m-createForm {
-  margin: 16px 0;
   display: flex;
   flex-direction: column;
-  margin: 8px auto;
-  max-width: 256px;
 
-  input, textarea {
+  input, textarea, button {
     border: 2px solid $back-color;
     border-radius: $radius;
     padding: 8px 16px;
-    margin-top: 8px;
+    margin-top: 16px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    min-height: 128px;
   }
 }
 

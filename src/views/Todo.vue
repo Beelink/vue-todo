@@ -5,16 +5,20 @@
         class="todo__title"
         type="text"
         placeholder="Title"
-        :value="title"
+        v-model="title"
+        @input="updateTodoInfo()"
       />
     </Header>
-    <textarea :value="text" />
+    <textarea 
+      v-model="text"
+      @input="updateTodoInfo()"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mapGetters, mapActions } from "vuex"
+import { mapGetters, mapMutations } from "vuex"
 import Header from "../components/molecules/Header.vue";
 
 export default defineComponent({
@@ -29,9 +33,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    // console.log(this.$route.params.id)
     const todo = this.todoById(this.$route.params.id)
-    // console.log(todo)
     this.title = todo.title
     this.text = todo.text
   },
@@ -40,15 +42,38 @@ export default defineComponent({
       todoById: 'todoById'
     }),
   },
+  methods: {
+    ...mapMutations(['updateTodo']),
+    updateTodoInfo() {
+      this.updateTodo({
+        title: this.title,
+        text: this.text,
+        id: this.$route.params.id,
+      })
+    },
+  },
 })
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/styles/_variables.scss";
+
 .todo {
   &__title {
     font-weight: bold;
     border: none;
     padding: 0;
+    width: 100%;
+  }
+
+  textarea {
+    border: 2px solid $back-color;
+    border-radius: $radius;
+    padding: 8px 16px;
+    margin-top: 16px;
+    max-width: 100%;
+    box-sizing: border-box; 
+    min-height: 128px;
     width: 100%;
   }
 }

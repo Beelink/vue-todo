@@ -25,15 +25,20 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/styles/_variables.scss";
+
 .m-header {
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 2px solid $back-color;
 
   &__heading {
     margin: 0 16px;
     display: flex;
+    flex: 1;
   }
 
   &__back {
