@@ -34,14 +34,9 @@ export default {
     },
     updateTodo(state: State, updatedTodo: Todo) {
       let todo = state.todos.find((value) => value.id == updatedTodo.id)
-      if (todo) {
-        todo.title = updatedTodo.title
-        todo.text = updatedTodo.text
-      }
+      todo!.title = updatedTodo.title
+      todo!.text = updatedTodo.text
     },
-  },
-  state: {
-    todos: [],
   },
   getters: {
     allTodos(state: State) {

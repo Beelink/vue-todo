@@ -23,12 +23,12 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'TodoItem',
-  props: [
-    'index',
-    'title',
-    'text',
-    'id',
-  ],
+  props: {
+    index: Number,
+    title: String,
+    text: String,
+    id: Number,
+  }
 })
 </script>
 

@@ -4,12 +4,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mapGetters, mapActions } from "vuex"
+import { mapActions } from "vuex"
 
 export default defineComponent({
   name: 'App',
   async mounted() {
-    this.fetchTodos.apply(this)
+    this.fetchTodos()
   },
   methods: {
     ...mapActions({

@@ -19,7 +19,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapGetters, mapMutations } from "vuex"
-import Header from "../components/molecules/Header.vue";
+import Header from "../components/molecules/Header.vue"
 
 export default defineComponent({
   name: 'Todo',

@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mapGetters, mapActions } from "vuex"
+import { mapGetters } from "vuex"
 import TodoItem from "../molecules/TodoItem.vue";
 
 export default defineComponent({
